@@ -13,7 +13,8 @@ public class BlendShapeController : MonoBehaviour
         public float value;
     }
 
-    public BlendShapeInfo[] blendShapes;
+    public BlendShapeInfo[] sliderBlendShapes;
+    public BlendShapeInfo[] buttonBlendShapes;
 
     void Update()
     {
@@ -26,27 +27,46 @@ public class BlendShapeController : MonoBehaviour
 
     public void UpdateBlendShapes()
     {
-        if (blendShapes == null) return;
-
-        foreach (BlendShapeInfo blendShape in blendShapes)
+        if (sliderBlendShapes != null)
         {
-            int parentBlendShapeIndex = parentMeshRenderer.sharedMesh.GetBlendShapeIndex(blendShape.name);
-            int childBlendShapeIndex = childMeshRenderer.sharedMesh.GetBlendShapeIndex(blendShape.name);
+            foreach (BlendShapeInfo blendShape in sliderBlendShapes)
+            {
+                int parentBlendShapeIndex = parentMeshRenderer.sharedMesh.GetBlendShapeIndex(blendShape.name);
+                int childBlendShapeIndex = childMeshRenderer.sharedMesh.GetBlendShapeIndex(blendShape.name);
 
-            if (parentBlendShapeIndex >= 0)
-            {
-                parentMeshRenderer.SetBlendShapeWeight(parentBlendShapeIndex, blendShape.value);
+                if (parentBlendShapeIndex >= 0)
+                {
+                    parentMeshRenderer.SetBlendShapeWeight(parentBlendShapeIndex, blendShape.value);
+                }
+                if (childBlendShapeIndex >= 0)
+                {
+                    childMeshRenderer.SetBlendShapeWeight(childBlendShapeIndex, blendShape.value);
+                }
             }
-            if (childBlendShapeIndex >= 0)
+        }
+
+        if (buttonBlendShapes != null)
+        {
+            foreach (BlendShapeInfo blendShape in buttonBlendShapes)
             {
-                childMeshRenderer.SetBlendShapeWeight(childBlendShapeIndex, blendShape.value);
+                int parentBlendShapeIndex = parentMeshRenderer.sharedMesh.GetBlendShapeIndex(blendShape.name);
+                int childBlendShapeIndex = childMeshRenderer.sharedMesh.GetBlendShapeIndex(blendShape.name);
+
+                if (parentBlendShapeIndex >= 0)
+                {
+                    parentMeshRenderer.SetBlendShapeWeight(parentBlendShapeIndex, blendShape.value);
+                }
+                if (childBlendShapeIndex >= 0)
+                {
+                    childMeshRenderer.SetBlendShapeWeight(childBlendShapeIndex, blendShape.value);
+                }
             }
         }
     }
 
     public void SetBlendShapeValue(string blendShapeName)
     {
-        foreach (BlendShapeInfo blendShape in blendShapes)
+        foreach (BlendShapeInfo blendShape in buttonBlendShapes)
         {
             blendShape.value = blendShape.name == blendShapeName ? 100f : 0f;
         }
@@ -55,7 +75,11 @@ public class BlendShapeController : MonoBehaviour
 
     public void ResetBlendShapes()
     {
-        foreach (BlendShapeInfo blendShape in blendShapes)
+        foreach (BlendShapeInfo blendShape in sliderBlendShapes)
+        {
+            blendShape.value = 0f;
+        }
+        foreach (BlendShapeInfo blendShape in buttonBlendShapes)
         {
             blendShape.value = 0f;
         }

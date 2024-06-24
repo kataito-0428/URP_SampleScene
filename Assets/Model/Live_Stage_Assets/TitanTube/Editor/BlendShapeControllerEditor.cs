@@ -10,14 +10,26 @@ public class BlendShapeControllerEditor : Editor
 
         BlendShapeController controller = (BlendShapeController)target;
 
-        if (GUILayout.Button("Reset"))
+        EditorGUILayout.LabelField("Slider Controlled BlendShapes", EditorStyles.boldLabel);
+
+        if (controller.sliderBlendShapes != null)
         {
-            controller.ResetBlendShapes();
+            foreach (var blendShape in controller.sliderBlendShapes)
+            {
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField(blendShape.name, GUILayout.Width(150));
+                blendShape.value = EditorGUILayout.Slider(blendShape.value, 0f, 100f);
+                EditorGUILayout.EndHorizontal();
+            }
         }
 
-        if (controller.blendShapes != null)
+        EditorGUILayout.Space();
+
+        EditorGUILayout.LabelField("Button Controlled BlendShapes", EditorStyles.boldLabel);
+
+        if (controller.buttonBlendShapes != null)
         {
-            foreach (var blendShape in controller.blendShapes)
+            foreach (var blendShape in controller.buttonBlendShapes)
             {
                 if (GUILayout.Button(blendShape.name))
                 {
@@ -26,6 +38,14 @@ public class BlendShapeControllerEditor : Editor
             }
         }
 
+        EditorGUILayout.Space();
+
+        if (GUILayout.Button("Reset"))
+        {
+            controller.ResetBlendShapes();
+        }
+
+        // BlendShape値の変更があったときに自動的に更新を行う
         if (GUI.changed)
         {
             controller.UpdateBlendShapes();
