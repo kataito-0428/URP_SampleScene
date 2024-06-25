@@ -3,7 +3,12 @@ guid: 0b32eeeafaa8d3645ac8c4f431ba8b22
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Minibull_Light
+    second: {fileID: 2100000, guid: 91b696b5552310142878e1abc97b61f7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
