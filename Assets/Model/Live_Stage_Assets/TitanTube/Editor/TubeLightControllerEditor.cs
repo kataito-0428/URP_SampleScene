@@ -1,14 +1,14 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(BlendShapeController))]
+[CustomEditor(typeof(TubeLightController))]
 public class BlendShapeControllerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        BlendShapeController controller = (BlendShapeController)target;
+        TubeLightController controller = (TubeLightController)target;
 
         EditorGUILayout.LabelField("Slider Controlled BlendShapes", EditorStyles.boldLabel);
 
@@ -40,9 +40,9 @@ public class BlendShapeControllerEditor : Editor
 
         EditorGUILayout.Space();
 
-        if (GUILayout.Button("Reset"))
+        if (GUILayout.Button("Reset Button Bllendshape"))
         {
-            controller.ResetBlendShapes();
+            controller.ResetButtonBlendShapes();
         }
 
         // BlendShape値の変更があったときに自動的に更新を行う

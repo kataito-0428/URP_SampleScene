@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 872732cfcb5bdcf4aa933ed8b54d51ba
+guid: 4a1efa2a68b2932499b0bf8da8160aa1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -12,7 +12,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Titan_Tube_Base.001
+    second: {fileID: 2100000, guid: 54d22a973dc44524eba9dcea174c0e4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Titan_Tube_Light
+    second: {fileID: 2100000, guid: 7068e23a726c5794a81fd9f894858032, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Titan_Tube_Light.001
     second: {fileID: 2100000, guid: 7068e23a726c5794a81fd9f894858032, type: 2}
   materials:
     materialImportMode: 2
@@ -85,7 +95,7 @@ ModelImporter:
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
+    blendShapeNormalImportMode: 2
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1

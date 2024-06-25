@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class BlendShapeController : MonoBehaviour
+public class TubeLightController : MonoBehaviour
 {
     public SkinnedMeshRenderer parentMeshRenderer;
     public SkinnedMeshRenderer childMeshRenderer;
@@ -73,12 +73,8 @@ public class BlendShapeController : MonoBehaviour
         UpdateBlendShapes();
     }
 
-    public void ResetBlendShapes()
+    public void ResetButtonBlendShapes()
     {
-        foreach (BlendShapeInfo blendShape in sliderBlendShapes)
-        {
-            blendShape.value = 0f;
-        }
         foreach (BlendShapeInfo blendShape in buttonBlendShapes)
         {
             blendShape.value = 0f;
