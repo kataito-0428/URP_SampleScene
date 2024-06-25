@@ -3,17 +3,7 @@ guid: 7be9181d3636e554cacdc74d8f60ccb6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Titan_Tube_Base
-    second: {fileID: 2100000, guid: 54d22a973dc44524eba9dcea174c0e4d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Titan_Tube_Light
-    second: {fileID: 2100000, guid: 7068e23a726c5794a81fd9f894858032, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
